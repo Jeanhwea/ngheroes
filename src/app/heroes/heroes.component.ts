@@ -15,12 +15,12 @@ export class HeroesComponent implements OnInit {
   //   name: 'Windstorm'
   // };
 
-  heroes = HEROES
+  heroes = HEROES;
 
   selectedHero: Hero;
 
   onSelect(hero: Hero): void {
-    this.selectedHero = hero
+    this.selectedHero = hero;
     // console.log(hero)
   }
 
