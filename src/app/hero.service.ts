@@ -6,6 +6,12 @@ import { Hero } from './hero';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -47,6 +53,14 @@ export class HeroService {
       );
   }
 
+  updateHero(hero: Hero): Observable<any> {
+
+    return this.http.put(this.heroesUrl, hero, httpOptions)
+      .pipe(
+        tap(_ => this.log(`update hero id=${hero.id}`)),
+        catchError(this.handleError<any>('updateHero'))
+      )
+  }
 
 }
 
