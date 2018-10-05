@@ -17,8 +17,7 @@ export class HeroSearchComponent implements OnInit {
   heroes$: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private hs: HeroService) {
-  }
+  constructor(private hs: HeroService) { }
 
   ngOnInit() {
     this.heroes$ = this.searchTerms.pipe(
